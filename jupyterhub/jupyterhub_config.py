@@ -1,0 +1,53 @@
+# Spawner Config
+from fargatespawner import FargateSpawner
+c.JupyterHub.spawner_class = FargateSpawner
+c.FargateSpawner.aws_region = 'us-east-1'
+c.FargateSpawner.aws_ecs_host = 'ecs.us-east-1.amazonaws.com'
+c.FargateSpawner.notebook_port = 8888
+c.FargateSpawner.notebook_scheme = 'http'
+c.FargateSpawner.get_run_task_args = lambda spawner: {
+    'cluster': 'jupyterLabs',
+    'taskDefinition': 'JupyterLab:1',
+    'overrides': {
+        'containerOverrides': [{
+            'command': spawner.cmd + [f'--port={spawner.notebook_port}', '--config=notebook_config.py'],
+            'environment': [
+                {
+                    'name': name,
+                    'value': value,
+                } for name, value in spawner.get_env().items()
+            ],
+            'name': 'dotnet',
+        }],
+    },
+    'count': 1,
+    'launchType': 'FARGATE',
+    'networkConfiguration': {
+        'awsvpcConfiguration': {
+            'assignPublicIp': 'ENABLED',
+            'securityGroups': ['sg-012345678abcd0123'],
+            'subnets':  ['subnet-abcd0123','subnet-0123abcd'],
+        },
+    },
+}
+
+from fargatespawner import FargateSpawnerEC2InstanceProfileAuthentication
+c.FargateSpawner.authentication_class = FargateSpawnerEC2InstanceProfileAuthentication
+
+# Spawn Config
+c.Spawner.env_keep = ['PYTHONPATH', 'CONDA_ROOT', 'CONDA_DEFAULT_ENV', 'VIRTUAL_ENV', 'LANG', 'LC_ALL', 'JUPYTERHUB_SINGLEUSER_APP']
+c.Spawner.hub_connect_url = 'http://172.31.0.1:8888'
+c.Spawner.start_timeout = 120
+
+# Azure AD Config
+from oauthenticator.azuread import AzureAdOAuthenticator
+c.JupyterHub.authenticator_class = AzureAdOAuthenticator
+
+c.Application.log_level = 'DEBUG'
+
+c.AzureAdOAuthenticator.tenant_id = '0123abcd-01ab-ab01-abcd-0123abcd4567'
+
+c.AzureAdOAuthenticator.oauth_callback_url = 'https://jupyter.soule.com/hub/oauth_callback'
+c.AzureAdOAuthenticator.client_id = 'abcd0123-ab01-01ab-dcba-45670123abcd'
+c.AzureAdOAuthenticator.client_secret = '...'
+c.AzureAdOAuthenticator.scope = ['openid']
