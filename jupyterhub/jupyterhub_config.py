@@ -31,6 +31,27 @@ c.FargateSpawner.get_run_task_args = lambda spawner: {
     },
 }
 
+import json
+import boto3
+from botocore.exceptions import ClientError
+def get_secret():
+    secret_name = "JupyterHub"
+    region_name = "us-east-1"
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name=region_name
+    )
+    try:
+        get_secret_value_response = client.get_secret_value(
+            SecretId=secret_name
+        )
+    except ClientError as e:
+        raise e
+    secret = get_secret_value_response['SecretString']
+    val = json.loads(secret)
+    return val['client_secret']
+
 #from fargatespawner import FargateSpawnerEC2InstanceProfileAuthentication
 #c.FargateSpawner.authentication_class = FargateSpawnerEC2InstanceProfileAuthentication
 from fargatespawner import FargateSpawnerECSRoleAuthentication
@@ -52,5 +73,5 @@ c.AzureAdOAuthenticator.tenant_id = '0123abcd-01ab-ab01-abcd-0123abcd4567'
 
 c.AzureAdOAuthenticator.oauth_callback_url = 'https://jupyter.soule.com/hub/oauth_callback'
 c.AzureAdOAuthenticator.client_id = 'abcd0123-ab01-01ab-dcba-45670123abcd'
-c.AzureAdOAuthenticator.client_secret = '...'
+c.AzureAdOAuthenticator.client_secret = get_secret()
 c.AzureAdOAuthenticator.scope = ['openid']
