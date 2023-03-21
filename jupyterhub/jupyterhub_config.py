@@ -31,12 +31,15 @@ c.FargateSpawner.get_run_task_args = lambda spawner: {
     },
 }
 
-from fargatespawner import FargateSpawnerEC2InstanceProfileAuthentication
-c.FargateSpawner.authentication_class = FargateSpawnerEC2InstanceProfileAuthentication
+#from fargatespawner import FargateSpawnerEC2InstanceProfileAuthentication
+#c.FargateSpawner.authentication_class = FargateSpawnerEC2InstanceProfileAuthentication
+from fargatespawner import FargateSpawnerECSRoleAuthentication
+c.FargateSpawner.authentication_class = FargateSpawnerECSRoleAuthentication
 
 # Spawn Config
 c.Spawner.env_keep = ['PYTHONPATH', 'CONDA_ROOT', 'CONDA_DEFAULT_ENV', 'VIRTUAL_ENV', 'LANG', 'LC_ALL', 'JUPYTERHUB_SINGLEUSER_APP']
-c.Spawner.hub_connect_url = 'http://172.31.0.1:8888'
+#c.Spawner.hub_connect_url = 'http://172.31.0.1:8888'
+c.Spawner.hub_connect_url = 'https://jupyter.soule.aws.sentinel.com'
 c.Spawner.start_timeout = 120
 
 # Azure AD Config
