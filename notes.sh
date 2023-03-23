@@ -1,7 +1,7 @@
 # Manually start docker host
-sudo yum update
-sudo yum install docker
-sudo systemctl start docker
+#sudo yum update
+#sudo yum install docker
+#sudo systemctl start docker
 
 # Build jupyterhub image
 cd ~/jupyterhub
@@ -17,6 +17,7 @@ aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS
 sudo docker tag dotnet:latest 012345670123.dkr.ecr.us-east-1.amazonaws.com/dotnet:latest
 sudo docker push 012345670123.dkr.ecr.us-east-1.amazonaws.com/dotnet:latest
 
+# Manually start instances
 #sudo docker run -p 8888:8888 dotnet &
 #sudo docker run -p 8888:8000 jupyterhub &
 
