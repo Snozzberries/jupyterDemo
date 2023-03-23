@@ -71,7 +71,7 @@ c.Application.log_level = 'DEBUG'
 
 c.AzureAdOAuthenticator.tenant_id = '0123abcd-01ab-ab01-abcd-0123abcd4567'
 
-c.AzureAdOAuthenticator.oauth_callback_url = 'https://jupyter.soule.com/hub/oauth_callback'
+c.AzureAdOAuthenticator.oauth_callback_url = 'https://jupyter.soule.aws.sentinel.com/hub/oauth_callback'
 c.AzureAdOAuthenticator.client_id = 'abcd0123-ab01-01ab-dcba-45670123abcd'
 c.AzureAdOAuthenticator.client_secret = get_secret()
 c.AzureAdOAuthenticator.scope = ['openid']
