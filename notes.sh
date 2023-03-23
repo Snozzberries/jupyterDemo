@@ -17,6 +17,9 @@ aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS
 sudo docker tag dotnet:latest 012345670123.dkr.ecr.us-east-1.amazonaws.com/dotnet:latest
 sudo docker push 012345670123.dkr.ecr.us-east-1.amazonaws.com/dotnet:latest
 
+#sudo docker run -p 8888:8888 dotnet &
+#sudo docker run -p 8888:8000 jupyterhub &
+
 #AWS
 #Setup target group
 # Map to instance:8000
