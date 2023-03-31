@@ -33,6 +33,7 @@ iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/workingWithO
 # Run Mermaid
 # change Kernel
 # Run through Connecting to the graph
+# Connect-MgGraph -ContextScope Process
 # Add a code cell and show Get-MgContext
 
 # Hub > Home > Token
