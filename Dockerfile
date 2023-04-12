@@ -5,7 +5,7 @@ RUN dpkg -i packages-microsoft-prod.deb
 RUN rm packages-microsoft-prod.deb
 RUN apt-get update -y
 RUN apt-get install -y dotnet-sdk-7.0
-COPY . ${HOME}
+COPY ./workingWithO365.ipynb ${HOME}
 USER root
 RUN chown -R 1000 ${HOME}
 USER jovyan
