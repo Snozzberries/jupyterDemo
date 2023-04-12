@@ -19,7 +19,9 @@ Provides JupyterNotebook image with integration for dotnet interactive
 
 ### Dockerfile
 
-At the root of the repo is a Dockerfile copy of the dotnet image. This is to build a custom image for use with Binder specifically. 
+At the root of the repo is a Dockerfile copy of the dotnet image. This is to build a custom image for use with Binder specifically.
+
+> When you launch with Binder ensure you select the PowerShell Kernel when the JupyterLab instance is started
 
 ## example.cfn.yml
 
