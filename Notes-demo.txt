@@ -48,3 +48,6 @@ gci
 "" > ./test.txt
 ## In VSCode
 gci
+
+iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/PowerShellAI.ipynb -OutFile .\PowerShellAI.ipynb
+iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/powerBi.ipynb -OutFile .\powerBi.ipynb
