@@ -36,6 +36,9 @@ iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/workingWithO
 # Connect-MgGraph -ContextScope Process
 # Add a code cell and show Get-MgContext
 
+## In JupyterLab
+iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/powerBi.ipynb -OutFile .\powerBi.ipynb
+
 # Hub > Home > Token
 # Create new token
 # New notebook in VSCode
@@ -51,6 +54,3 @@ gci
 
 ## In VSCode
 .\PowerShellAI.ipynb
-
-## In JupyterLab
-iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/powerBi.ipynb -OutFile .\powerBi.ipynb
