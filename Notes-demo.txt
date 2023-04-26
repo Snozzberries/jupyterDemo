@@ -49,5 +49,8 @@ gci
 ## In VSCode
 gci
 
-iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/PowerShellAI.ipynb -OutFile .\PowerShellAI.ipynb
+## In VSCode
+.\PowerShellAI.ipynb
+
+## In JupyterLab
 iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/powerBi.ipynb -OutFile .\powerBi.ipynb
