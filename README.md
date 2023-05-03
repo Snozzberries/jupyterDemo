@@ -3,6 +3,10 @@ Content associated with PowerShell + DevOps Global Summit 2022 session Drive Rap
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Snozzberries/jupyterDemo/HEAD)
 
+--------------
+
+![](https://github.com/Snozzberries/jupyterDemo/blob/main/demo.gif)
+
 ## Docker Images
 
 ### jupyterhub
