@@ -43,6 +43,6 @@ Provides an outline of the different steps shown during the demo
 
 Provides basic steps in creating the environment
 
-## workingWithO365.ipynb
+## .ipynb files
 
 Provides the notebook used during the demo
