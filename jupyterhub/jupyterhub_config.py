@@ -31,11 +31,13 @@ c.FargateSpawner.get_run_task_args = lambda spawner: {
     },
 }
 
+c.JupyterHub.allow_named_servers = True
+
 import json
 import boto3
 from botocore.exceptions import ClientError
-def get_secret():
-    secret_name = "JupyterHub"
+def get_secret(secret, key):
+    secret_name = secret
     region_name = "us-east-1"
     session = boto3.session.Session()
     client = session.client(
@@ -50,7 +52,7 @@ def get_secret():
         raise e
     secret = get_secret_value_response['SecretString']
     val = json.loads(secret)
-    return val['client_secret']
+    return val[key]
 
 #from fargatespawner import FargateSpawnerEC2InstanceProfileAuthentication
 #c.FargateSpawner.authentication_class = FargateSpawnerEC2InstanceProfileAuthentication
@@ -73,5 +75,25 @@ c.AzureAdOAuthenticator.tenant_id = '0123abcd-01ab-ab01-abcd-0123abcd4567'
 
 c.AzureAdOAuthenticator.oauth_callback_url = 'https://jupyter.soule.aws.sentinel.com/hub/oauth_callback'
 c.AzureAdOAuthenticator.client_id = 'abcd0123-ab01-01ab-dcba-45670123abcd'
-c.AzureAdOAuthenticator.client_secret = get_secret()
+c.AzureAdOAuthenticator.client_secret = get_secret('JupyterHub', 'client_secrect')
 c.AzureAdOAuthenticator.scope = ['openid']
+
+c.JupyterHub.services = [
+    {
+        "name": "spawner-admin",
+        "api_token": get_secret('JupyterHubService','api_token')
+    },
+]
+
+c.JupyterHub.load_roles = [
+    {
+        "name": "service-role",
+        "scopes": [
+            "admin:users",
+            "admin:servers",
+        ],
+        "services": [
+            "spawner-admin",
+        ],
+    }
+]
