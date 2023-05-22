@@ -1,5 +1,5 @@
 # jupyterDemo
-Content associated with PowerShell + DevOps Global Summit 2022 session Drive Rapid PowerShell Adoption Using Jupyter Notebooks
+Content associated with presentations and demos for Using Jupyter Notebooks
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Snozzberries/jupyterDemo/HEAD)
 
@@ -43,6 +43,6 @@ Provides an outline of the different steps shown during the demo
 
 Provides basic steps in creating the environment
 
-## workingWithO365.ipynb
+## .ipynb files
 
 Provides the notebook used during the demo
