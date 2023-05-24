@@ -3,6 +3,5 @@ USER jovyan
 RUN pip3 install PyJWT
 RUN pip3 install oauthenticator
 RUN pip3 install fargatespawner
-RUN pip3 install nbgitpuller
 COPY jupyterhub_config.py /etc/jupyterhub/jupyterhub_config.py
 CMD ["jupyterhub","-f","/etc/jupyterhub/jupyterhub_config.py","--log-level=DEBUG"]

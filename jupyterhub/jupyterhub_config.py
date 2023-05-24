@@ -7,10 +7,10 @@ c.FargateSpawner.notebook_port = 8888
 c.FargateSpawner.notebook_scheme = 'http'
 c.FargateSpawner.get_run_task_args = lambda spawner: {
     'cluster': 'jupyterLabs',
-    'taskDefinition': 'JupyterLab:1',
+    'taskDefinition': 'JupyterLab:2',
     'overrides': {
         'containerOverrides': [{
-            'command': spawner.cmd + [f'--port={spawner.notebook_port}', '--config=notebook_config.py'],
+            'command': spawner.cmd,
             'environment': [
                 {
                     'name': name,
@@ -59,6 +59,8 @@ def get_secret(secret, key):
 from fargatespawner import FargateSpawnerECSRoleAuthentication
 c.FargateSpawner.authentication_class = FargateSpawnerECSRoleAuthentication
 
+c.Spawner.ip = '0.0.0.0'
+c.Spawner.port = 8888
 # Spawn Config
 c.Spawner.env_keep = ['PYTHONPATH', 'CONDA_ROOT', 'CONDA_DEFAULT_ENV', 'VIRTUAL_ENV', 'LANG', 'LC_ALL', 'JUPYTERHUB_SINGLEUSER_APP']
 #c.Spawner.hub_connect_url = 'http://172.31.0.1:8888'

@@ -7,6 +7,7 @@ RUN sudo rm /etc/apt/sources.list.d/microsoft-prod.list
 RUN apt-get update -y
 RUN apt-get install -y dotnet-sdk-7.0
 COPY ./workingWithO365.ipynb ${HOME}
+COPY ./workingWithAws.ipynb ${HOME}
 USER root
 RUN chown -R 1000 ${HOME}
 USER jovyan
