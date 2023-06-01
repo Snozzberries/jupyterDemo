@@ -1,15 +1,3 @@
-winget install --id Microsoft.VisualStudioCode
-winget install --id Microsoft.DotNet.SDK.7 --log C:\temp\dotnet.log
-winget install --id Microsoft.PowerShell
-
-# New Terminal Session for PWSH
-$psversionTable
-& code
-
-# Install PolyGlot Extension in VSCode
-# New Jupyter Notebook for PowerShell
-$psversionTable
-
 iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/workingWithO365.ipynb -OutFile .\workingWithO365.ipynb
 code .\workingWithO365.ipynb
 
@@ -26,18 +14,12 @@ code .\workingWithO365.ipynb
 # Start JupyterHub
 # Show automatic server launch
 # Show ECS task
-$psversionTable
-iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/workingWithO365.ipynb -OutFile .\workingWithO365.ipynb
-# Refresh dir viewer
-# Open file
+https://jupyter.soule.aws.sentinel.com/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FSnozzberries%2FjupyterDemo&urlpath=lab%2Ftree%2FjupyterDemo%2FworkingWithO365.ipynb&branch=main
 # Run Mermaid
 # change Kernel
 # Run through Connecting to the graph
 # Connect-MgGraph -ContextScope Process
 # Add a code cell and show Get-MgContext
-
-## In JupyterLab
-iwr https://raw.githubusercontent.com/Snozzberries/jupyterDemo/main/powerBi.ipynb -OutFile .\powerBi.ipynb
 
 # Hub > Home > Token
 # Create new token
