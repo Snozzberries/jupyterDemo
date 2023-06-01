@@ -19,7 +19,9 @@ https://jupyter.soule.aws.sentinel.com/hub/user-redirect/git-pull?repo=https%3A%
 # change Kernel
 # Run through Connecting to the graph
 # Connect-MgGraph -ContextScope Process
-# Add a code cell and show Get-MgContext
+# Terminal
+## jupyter kernelspec list
+## pip install pandas lxml
 
 # Hub > Home > Token
 # Create new token
